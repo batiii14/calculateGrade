@@ -14,7 +14,7 @@ A total_grade(A grade1, B percantage1, C grade2, D percantage2) {
 	return result;
 
 }string letter_grade(float rslt) {
-	//couldn't use switch case don't know why,switch case didn't accept the rslt as a parameter
+	
 	string lg;
 	if (rslt > 84 && rslt < 101) {
 		lg = "AA";

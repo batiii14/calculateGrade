@@ -5,6 +5,7 @@ using namespace std;
 template<class A, class B, class C, class D>
 
 A total_grade(A grade1, B percantage1, C grade2, D percantage2) {
+
 	float result;
 
 	result = grade1 * percantage1 / 100 + grade2 * percantage2 / 100;
@@ -13,47 +14,56 @@ A total_grade(A grade1, B percantage1, C grade2, D percantage2) {
 	return result;
 
 }string letter_grade(float rslt) {
-	string letter;
+	//couldn't use switch case don't know why,switch case didn't accept the rslt as a parameter
+	string lg;
 	if (rslt > 84 && rslt < 101) {
-		letter = "AA";
+		lg = "AA";
 	}
 	else if (rslt > 75 && rslt < 85) {
-		letter = "BB";
+		lg = "BB";
 	}
 	else if (rslt > 60 && rslt < 75) {
-		letter = "CC";
+		lg = "CC";
 	}
 	else if (rslt > 50 && rslt < 60) {
-		letter = "DD";
+		lg = "DD";
 	}
 	else if (rslt >= 0 && rslt < 50) {
-		letter = "FF";
+		lg = "FF";
 	}
 	else {
 		cout << "Invalid input";
 	}
-	return letter;
+	return lg;
 }
 
 
 
 void display();
+
+
 void main() {
 	display();
 	float rslt = 0;
-	float grade1, grade2;
-	int percantage1, percantage2;
+	float grade1, grade2;//holds the value of grade1 and grade2 
+	int percantage1, percantage2;//holds the value of percantage1 and percantage2
 	cout << "Please enter your first grade : ";
-		cin >> grade1;
-		cout << "Please enter your first grade's percantage : ";
-		cin >> percantage1;
-		cout << "Please enter your second grade : ";
-		cin >> grade2;
-		cout << "Please enter your second grade's percantage : ";
-		cin >> percantage2;
-	rslt = total_grade(grade1, percantage1, grade2, percantage2);
-	cout << "RESULT : " << rslt << endl;
-	cout << "The letter grade: " << letter_grade(rslt) << endl;
+	cin >> grade1;
+	cout << "Please enter your first grade's percantage : ";
+	cin >> percantage1;
+	cout << "Please enter your second grade : ";
+	cin >> grade2;
+	cout << "Please enter your second grade's percantage : ";
+	cin >> percantage2;
+
+	if (percantage1 + percantage2 == 100) {
+		rslt = total_grade(grade1, percantage1, grade2, percantage2);//rslt keeps the value of that total_grade returned in the function
+		cout << "RESULT : " << rslt << endl;
+		cout << "The letter grade: " << letter_grade(rslt) << endl;
+	}
+	else {
+		cout << "invalid input! summation of percantage 1 and percantage 2 must be 100!!"<<endl;//assuming that the course have only midterm and final exam the summation of the percantages must be 100 so that we can calculate
+	}
 
 	system("pause");
 }
@@ -72,7 +82,3 @@ void display() {
 
 
 }
-
-
-
-
